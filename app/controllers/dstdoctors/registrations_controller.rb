@@ -1,9 +1,9 @@
 class Dstdoctors::RegistrationsController < Devise::RegistrationsController
     # Override the action you want here.
-  def create
-    super do |resource|
+  # def create
+  #   super do |resource|
     	
-    end
-  end
+  #   end
+  # end
 
 end

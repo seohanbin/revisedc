@@ -1,0 +1,27 @@
+<% if signed_in? %>
+
+
+	<% if current_dstdoctor %>
+	      stdoctor / 
+	      <%= current_dstdoctor.email %> / 
+	      <%= link_to "Sign out", destroy_dstdoctor_session_path, method: :delete %>
+
+	<% elsif current_dpatient %>
+	      patient / 
+	      <%= current_dpatient.email %> / 
+	      <%= link_to "Sign out", destroy_dpatient_session_path, method: :delete %>
+
+	<% end %>
+
+
+<% else %>
+	stdoctor / 
+	<%= link_to "Sign in", new_dstdoctor_session_path %> / 
+	<%= link_to "Sign up", new_dstdoctor_registration_path %> <br>
+
+	dpatient / 
+	<%= link_to "Sign in", new_dpatient_session_path %> / 
+	<%= link_to "Sign up", new_dpatient_registration_path %> <br>	
+
+<% end %>
+<br>------------------------------------------------------------ <br>

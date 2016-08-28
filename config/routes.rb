@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+  get 'matchcase/prindex'
+  get 'matchcase/selectpatient'
+  get 'matchcase/confirmpr'
+
+  get 'matchcase/drindex'
+  get 'matchcase/selectstdoctor'
+  get 'matchcase/confirmdr'
+
+  root 'home#index'
+
   resources :stdoctorregists
   resources :patientregists
   devise_for :dstdoctors, controllers: { registrations: 'dstdoctors/registrations' }

@@ -1,10 +1,15 @@
 class PatientregistsController < ApplicationController
   before_action :set_patientregist, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_dpatient!
+
 
   # GET /patientregists
   # GET /patientregists.json
-  def index
-    @patientregists = Patientregist.all
+  def index # 자기가 작성한 것만 보임.
+
+    #자기것만 보이도록..
+    @patientregists = current_dpatient.patientregists.all
+
   end
 
   # GET /patientregists/1
@@ -24,7 +29,7 @@ class PatientregistsController < ApplicationController
   # POST /patientregists
   # POST /patientregists.json
   def create
-    @patientregist = Patientregist.new(patientregist_params)
+    @patientregist = current_dpatient.patientregists.new(patientregist_params)
 
     respond_to do |format|
       if @patientregist.save

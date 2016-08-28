@@ -12,37 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :chiefcomplaint %><br>
+    <%= f.label :chiefcomplaint, "통증의 주소(c/c)" %><br>
     <%= f.text_area :chiefcomplaint %>
   </div>
-  <div class="field">
-    <%= f.label :pipainwhen %><br>
-    <%= f.text_field :pipainwhen %>
-  </div>
-  <div class="field">
-    <%= f.label :pisustain %><br>
-    <%= f.text_field :pisustain %>
-  </div>
-  <div class="field">
-    <%= f.label :piprogress %><br>
-    <%= f.text_field :piprogress %>
-  </div>
-  <div class="field">
-    <%= f.label :completion %><br>
-    <%= f.check_box :completion %>
-  </div>
-  <div class="field">
-    <%= f.label :evaluation %><br>
-    <%= f.number_field :evaluation %>
-  </div>
-  <div class="field">
-    <%= f.label :dpatient_id %><br>
-    <%= f.text_field :dpatient_id %>
-  </div>
-  <div class="field">
-    <%= f.label :dstdoctor_id %><br>
-    <%= f.text_field :dstdoctor_id %>
-  </div>
+  <%= field_set_tag 'P/I' do %>
+    <div class="field">
+      <%= f.label :pipainwhen, "언제부터 아프기 시작했는지" %><br>
+      <%= f.text_field :pipainwhen %>
+    </div>
+    <div class="field">
+      <%= f.label :pisustain, "통증의 지속시간 및 강도" %><br>
+      <%= f.text_field :pisustain %>
+    </div>
+    <div class="field">
+      <%= f.label :piprogress, "통증이 처음과 비교하여 현재 어떻게 변했는지" %><br>
+      <%= f.text_field :piprogress %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

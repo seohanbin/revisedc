@@ -8,5 +8,5 @@ class Dpatient < ActiveRecord::Base
   has_many :stdoctorregists
 
   has_many :dstdoctors, through: :patientregists
-  has_many :dstdoctors, through: :stdoctorregists
+  #has_many :dstdoctors, through: :stdoctorregists
 end
