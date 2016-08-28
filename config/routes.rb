@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stdoctorregists
+  resources :patientregists
   devise_for :dstdoctors, controllers: { registrations: 'dstdoctors/registrations' }
   devise_for :dpatients, controllers: { registrations: 'dpatients/registrations' }
   

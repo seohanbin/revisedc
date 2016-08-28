@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chiefcomplaint: MyText
+  pipainwhen: MyString
+  pisustain: MyString
+  piprogress: MyString
+  completion: false
+  evaluation: 1
+  dpatient_id: 
+  dstdoctor_id: 
+
+two:
+  chiefcomplaint: MyText
+  pipainwhen: MyString
+  pisustain: MyString
+  piprogress: MyString
+  completion: false
+  evaluation: 1
+  dpatient_id: 
+  dstdoctor_id: 

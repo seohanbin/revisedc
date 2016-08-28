@@ -1,0 +1,1 @@
+json.array! @stdoctorregists, partial: 'stdoctorregists/stdoctorregist', as: :stdoctorregist

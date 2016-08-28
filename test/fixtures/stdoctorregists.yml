@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  treatsubject: MyString
+  treatdescript: MyString
+  treatcondition: MyString
+  completion: false
+  evaluation: 1
+  dpatient_id: 
+  dstdoctor_id: 
+
+two:
+  treatsubject: MyString
+  treatdescript: MyString
+  treatcondition: MyString
+  completion: false
+  evaluation: 1
+  dpatient_id: 
+  dstdoctor_id: 

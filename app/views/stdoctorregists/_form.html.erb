@@ -1,0 +1,45 @@
+<%= form_for(@stdoctorregist) do |f| %>
+  <% if @stdoctorregist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stdoctorregist.errors.count, "error") %> prohibited this stdoctorregist from being saved:</h2>
+
+      <ul>
+      <% @stdoctorregist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :treatsubject %><br>
+    <%= f.text_field :treatsubject %>
+  </div>
+  <div class="field">
+    <%= f.label :treatdescript %><br>
+    <%= f.text_field :treatdescript %>
+  </div>
+  <div class="field">
+    <%= f.label :treatcondition %><br>
+    <%= f.text_field :treatcondition %>
+  </div>
+  <div class="field">
+    <%= f.label :completion %><br>
+    <%= f.check_box :completion %>
+  </div>
+  <div class="field">
+    <%= f.label :evaluation %><br>
+    <%= f.number_field :evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :dpatient_id %><br>
+    <%= f.text_field :dpatient_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dstdoctor_id %><br>
+    <%= f.text_field :dstdoctor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

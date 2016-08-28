@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Patientregists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chiefcomplaint</th>
+      <th>Pipainwhen</th>
+      <th>Pisustain</th>
+      <th>Piprogress</th>
+      <th>Completion</th>
+      <th>Evaluation</th>
+      <th>Dpatient</th>
+      <th>Dstdoctor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patientregists.each do |patientregist| %>
+      <tr>
+        <td><%= patientregist.chiefcomplaint %></td>
+        <td><%= patientregist.pipainwhen %></td>
+        <td><%= patientregist.pisustain %></td>
+        <td><%= patientregist.piprogress %></td>
+        <td><%= patientregist.completion %></td>
+        <td><%= patientregist.evaluation %></td>
+        <td><%= patientregist.dpatient %></td>
+        <td><%= patientregist.dstdoctor %></td>
+        <td><%= link_to 'Show', patientregist %></td>
+        <td><%= link_to 'Edit', edit_patientregist_path(patientregist) %></td>
+        <td><%= link_to 'Destroy', patientregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patientregist', new_patientregist_path %>

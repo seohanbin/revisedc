@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stdoctorregists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Treatsubject</th>
+      <th>Treatdescript</th>
+      <th>Treatcondition</th>
+      <th>Completion</th>
+      <th>Evaluation</th>
+      <th>Dpatient</th>
+      <th>Dstdoctor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stdoctorregists.each do |stdoctorregist| %>
+      <tr>
+        <td><%= stdoctorregist.treatsubject %></td>
+        <td><%= stdoctorregist.treatdescript %></td>
+        <td><%= stdoctorregist.treatcondition %></td>
+        <td><%= stdoctorregist.completion %></td>
+        <td><%= stdoctorregist.evaluation %></td>
+        <td><%= stdoctorregist.dpatient %></td>
+        <td><%= stdoctorregist.dstdoctor %></td>
+        <td><%= link_to 'Show', stdoctorregist %></td>
+        <td><%= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
+        <td><%= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stdoctorregist', new_stdoctorregist_path %>

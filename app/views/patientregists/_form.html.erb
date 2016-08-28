@@ -1,0 +1,49 @@
+<%= form_for(@patientregist) do |f| %>
+  <% if @patientregist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patientregist.errors.count, "error") %> prohibited this patientregist from being saved:</h2>
+
+      <ul>
+      <% @patientregist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chiefcomplaint %><br>
+    <%= f.text_area :chiefcomplaint %>
+  </div>
+  <div class="field">
+    <%= f.label :pipainwhen %><br>
+    <%= f.text_field :pipainwhen %>
+  </div>
+  <div class="field">
+    <%= f.label :pisustain %><br>
+    <%= f.text_field :pisustain %>
+  </div>
+  <div class="field">
+    <%= f.label :piprogress %><br>
+    <%= f.text_field :piprogress %>
+  </div>
+  <div class="field">
+    <%= f.label :completion %><br>
+    <%= f.check_box :completion %>
+  </div>
+  <div class="field">
+    <%= f.label :evaluation %><br>
+    <%= f.number_field :evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :dpatient_id %><br>
+    <%= f.text_field :dpatient_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dstdoctor_id %><br>
+    <%= f.text_field :dstdoctor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
