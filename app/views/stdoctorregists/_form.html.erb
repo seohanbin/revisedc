@@ -12,32 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :treatsubject %><br>
-    <%= f.text_field :treatsubject %>
+    <%= f.label :treatsubject, "치료 케이스" %><br>
+    <%= f.text_area :treatsubject %>
   </div>
   <div class="field">
-    <%= f.label :treatdescript %><br>
-    <%= f.text_field :treatdescript %>
+    <%= f.label :treatdescript, "상세 설명" %><br>
+    <%= f.text_area :treatdescript %>
   </div>
   <div class="field">
-    <%= f.label :treatcondition %><br>
-    <%= f.text_field :treatcondition %>
-  </div>
-  <div class="field">
-    <%= f.label :completion %><br>
-    <%= f.check_box :completion %>
-  </div>
-  <div class="field">
-    <%= f.label :evaluation %><br>
-    <%= f.number_field :evaluation %>
-  </div>
-  <div class="field">
-    <%= f.label :dpatient_id %><br>
-    <%= f.text_field :dpatient_id %>
-  </div>
-  <div class="field">
-    <%= f.label :dstdoctor_id %><br>
-    <%= f.text_field :dstdoctor_id %>
+    <%= f.label :treatcondition, "필요한 환자의 상태" %><br>
+    <%= f.text_area :treatcondition %>
   </div>
   <div class="actions">
     <%= f.submit %>

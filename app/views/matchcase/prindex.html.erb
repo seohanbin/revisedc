@@ -1,2 +1,25 @@
-<h1>Matchcase#prindex</h1>
-<p>Find me in app/views/matchcase/prindex.html.erb</p>
+<h3><%= link_to "처리했던 환자리스트 보기", stdoctorregists_path %></h3>
+<br>
+===========================
+<h3>미완료된 케이스들 전체</h3>
+<% @prs_unmatched.each do |prs| %>
+	이메일:<%= prs.dpatient.email %> c/c: <%= prs.chiefcomplaint %> / <%= link_to '예약리스트로 매치시키기', {controller: :matchcase, action: :selectpatient, id: prs.id } %><br>
+	<!-- matchcase/selectpatient/:id -->
+<% end %>
+
+<h3>내가 매치하고 아직 치료안해서 아직 완료안한 케이스</h3>
+<% @prs_matched.each do |prs| %>
+	환자 C/C : <%= prs.chiefcomplaint %> (<%= prs.dpatient.email %>) <%= link_to '완료 처리하기', {controller: :matchcase, action: :confirmpr, id: prs.id } %> <br>
+<% end %>
+
+
+<h3>내가 처리한 완료 케이스 </h3>
+<% @prs_done.each do |prs| %>
+	<%= prs.dpatient.email %> : <%= prs.chiefcomplaint %>
+	<% if prs.evaluation_intby_dr %>
+	평가완료 스코어: <%= prs.evaluation_intby_dr %>
+	<% else %>
+	<%= link_to '평가하기', {controller: :matchcase, action: :eval_bydr, id: prs.id } %>
+	<% end %>
+	<br>
+<% end %>

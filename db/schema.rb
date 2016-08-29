@@ -72,30 +72,36 @@ ActiveRecord::Schema.define(version: 20160828075933) do
 
   create_table "patientregists", force: :cascade do |t|
     t.text     "chiefcomplaint"
-    t.string   "pipainwhen"
-    t.string   "pisustain"
-    t.string   "piprogress"
-    t.boolean  "completion"
-    t.integer  "evaluation"
+    t.text     "pipainwhen"
+    t.text     "pisustain"
+    t.text     "piprogress"
+    t.boolean  "completion",          default: false, null: false
+    t.integer  "evaluation_intby_pt"
+    t.integer  "evaluation_intby_dr"
+    t.text     "evaluation_strby_pt"
+    t.text     "evaluation_strby_dr"
     t.integer  "dpatient_id"
     t.integer  "dstdoctor_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "patientregists", ["dpatient_id"], name: "index_patientregists_on_dpatient_id"
   add_index "patientregists", ["dstdoctor_id"], name: "index_patientregists_on_dstdoctor_id"
 
   create_table "stdoctorregists", force: :cascade do |t|
-    t.string   "treatsubject"
-    t.string   "treatdescript"
-    t.string   "treatcondition"
-    t.boolean  "completion"
-    t.integer  "evaluation"
+    t.text     "treatsubject"
+    t.text     "treatdescript"
+    t.text     "treatcondition"
+    t.boolean  "completion",          default: false, null: false
+    t.integer  "evaluation_intby_pt"
+    t.integer  "evaluation_intby_dr"
+    t.text     "evaluation_strby_pt"
+    t.text     "evaluation_strby_dr"
     t.integer  "dpatient_id"
     t.integer  "dstdoctor_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "stdoctorregists", ["dpatient_id"], name: "index_stdoctorregists_on_dpatient_id"

@@ -1,2 +1,18 @@
 <h1>Matchcase#drindex</h1>
-<p>Find me in app/views/matchcase/drindex.html.erb</p>
+===========================
+<h3>미완료된 케이스들 전체</h3>
+<% @srs_unmatched.each do |srs| %>
+	<%= srs.treatsubject %> <%= link_to '예약리스트로 매치시키기', {controller: :matchcase, action: :selectstdoctor, id: srs.id } %><br>
+	<!-- matchcase/selectpatient/:id -->
+<% end %>
+
+<h3>내가 매치하고 아직 완료안된 케이스</h3>
+<% @srs_matched.each do |srs| %>
+	환자 C/C : <%= srs.treatsubject %> <%= link_to '완료 처리하기', {controller: :matchcase, action: :confirmdr, id: srs.id } %> <br>
+<% end %>
+
+
+<h3>매치되고 완료된 케이스 </h3>
+<% @srs_done.each do |srs| %>
+	<%= srs.treatsubject %> <br>
+<% end %>

@@ -33,13 +33,14 @@ class PatientregistsController < ApplicationController
 
     respond_to do |format|
       if @patientregist.save
-        format.html { redirect_to @patientregist, notice: 'Patientregist was successfully created.' }
+        format.html { redirect_to patientregists_path, notice: 'Patientregist was successfully created.' }
         format.json { render :show, status: :created, location: @patientregist }
       else
         format.html { render :new }
         format.json { render json: @patientregist.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /patientregists/1

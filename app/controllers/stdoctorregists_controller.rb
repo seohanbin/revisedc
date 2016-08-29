@@ -1,10 +1,13 @@
 class StdoctorregistsController < ApplicationController
   before_action :set_stdoctorregist, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_dstdoctor!
 
   # GET /stdoctorregists
   # GET /stdoctorregists.json
   def index
-    @stdoctorregists = Stdoctorregist.all
+    @stdoctorregists = current_dstdoctor.stdoctorregists.all
+
+    @patientregists = current_dstdoctor.patientregists.all
   end
 
   # GET /stdoctorregists/1
