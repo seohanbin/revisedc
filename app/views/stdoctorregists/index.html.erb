@@ -44,11 +44,11 @@
 
 
 <h1>-------------------------------------------------</h1>
-<p>아래는 진행중..</p>
 
-<h1><%= current_dstdoctor.email %> 이 등록한 Stdoctor regists</h1>
 
-<table>
+<!-- <h1><%#= current_dstdoctor.email %> 이 등록한 Stdoctor regists</h1> -->
+
+<!-- <table>
   <thead>
     <tr>
       <th>Treatsubject</th>
@@ -63,23 +63,23 @@
   </thead>
 
   <tbody>
-    <% @stdoctorregists.each do |stdoctorregist| %>
+    <%# @stdoctorregists.each do |stdoctorregist| %>
       <tr>
-        <td><%= stdoctorregist.treatsubject %></td>
-        <td><%= stdoctorregist.treatdescript %></td>
-        <td><%= stdoctorregist.treatcondition %></td>
-        <td><%= stdoctorregist.completion %></td>
-        <td><%= stdoctorregist.evaluation_intby_pt %></td>
-        <td><%= stdoctorregist.dpatient.email %></td>
-        <td><%= stdoctorregist.dstdoctor.email %></td>
-        <td><%= link_to 'Show', stdoctorregist %></td>
-        <td><%= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
-        <td><%= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= stdoctorregist.treatsubject %></td>
+        <td><%#= stdoctorregist.treatdescript %></td>
+        <td><%#= stdoctorregist.treatcondition %></td>
+        <td><%#= stdoctorregist.completion %></td>
+        <td><%#= stdoctorregist.evaluation_intby_pt %></td>
+        <td><%#= stdoctorregist.dpatient.email %></td>
+        <td><%#= stdoctorregist.dstdoctor.email %></td>
+        <td><%#= link_to 'Show', stdoctorregist %></td>
+        <td><%#= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
+        <td><%#= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
-<%= link_to 'New Stdoctorregist', new_stdoctorregist_path %>
+<%#= link_to 'New Stdoctorregist', new_stdoctorregist_path %>
