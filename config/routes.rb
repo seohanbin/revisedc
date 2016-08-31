@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :stdoctorregists
+  
+
   resources :patientregists
+  get 'matchcase/show_eval_ofdr/:id' => "matchcase#show_eval_ofdr"
+  # show_eval
+
   devise_for :dpatients, controllers: { registrations: 'dpatients/registrations' }
   devise_for :dstdoctors, controllers: { registrations: 'dstdoctors/registrations' }
   

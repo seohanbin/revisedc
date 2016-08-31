@@ -6,8 +6,6 @@ class MatchcaseController < ApplicationController
 
   # dr only
   def prindex
-    # current_dpatient.patientregists.all
-
     # 모두에게 보이는 언매치드 전체리스트
     @prs_unmatched = Patientregist.where(completion: false, dstdoctor_id: nil)
     # 자신이 매치했지만 미완료 리스트
@@ -45,6 +43,13 @@ class MatchcaseController < ApplicationController
     redirect_to matchcase_prindex_path
 
   end
+
+  def show_eval_ofdr
+    @selectedpr = Patientregist.find(params[:id])
+  end
+
+
+
 
 
   #pt only

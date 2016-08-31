@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>my patient registration list</h1>
+<h1>자신이 등록한 c/c 병변 리스트</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Chiefcomplaint</th>
-      <th>Pipainwhen</th>
-      <th>Pisustain</th>
-      <th>Piprogress</th>
-      <th>Completion</th>
-      <th>Evaluation_by_dr</th>
-      <th>Dpatient</th>
-      <th>Dstdoctor</th>
+      <th>c/c</th>
+      <th>증상시작 </th>
+      <th>증상지속 </th>
+      <th>병변진행</th>
+      <th>치료완료여부</th>
+      <th>평가한 환자협조도</th>
+      <!-- <th>환자이메일</th> -->
+      <th>의사이메일</th>
       <th colspan="3">Change status</th>
     </tr>
   </thead>
@@ -26,11 +26,13 @@
         <td><%= patientregist.piprogress %></td>
         <td><%= patientregist.completion ? "완료" : "미처리" %></td>
         <td><%= patientregist.evaluation_intby_dr %></td>
-        <td><%= patientregist.dpatient.email %></td>
+        <!-- <td><%#= patientregist.dpatient.email %></td> -->
         <td><%= patientregist.dstdoctor ? patientregist.dstdoctor.email : "매치없음." %></td>
+        <% if !patientregist.dstdoctor %>
         <td><%= link_to 'Show', patientregist %></td>
         <td><%= link_to 'Edit', edit_patientregist_path(patientregist) %></td>
         <td><%= link_to 'Destroy', patientregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +40,4 @@
 
 <br>
 
-<h3><%= link_to 'c/c 등록하기', new_patientregist_path %></h3>
+<h3><%= link_to 'c/c 등록하기', new_patientregist_path, style: "color: red" %></h3>

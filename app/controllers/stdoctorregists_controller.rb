@@ -27,7 +27,8 @@ class StdoctorregistsController < ApplicationController
   # POST /stdoctorregists
   # POST /stdoctorregists.json
   def create
-    @stdoctorregist = Stdoctorregist.new(stdoctorregist_params)
+    #current_dpatient.patientregists.
+    @stdoctorregist = current_dstdoctor.stdoctorregists.new(stdoctorregist_params)
 
     respond_to do |format|
       if @stdoctorregist.save

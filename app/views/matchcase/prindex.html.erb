@@ -1,4 +1,4 @@
-<h3><%= link_to "처리했던 환자리스트 보기", stdoctorregists_path %></h3>
+<h3><%= link_to "처리했던 환자리스트 보기", stdoctorregists_path, style: "color: red" %></h3>
 <br>
 ===========================
 <h3>미완료된 케이스들 전체</h3>
@@ -17,7 +17,7 @@
 <% @prs_done.each do |prs| %>
 	<%= prs.dpatient.email %> : <%= prs.chiefcomplaint %>
 	<% if prs.evaluation_intby_dr %>
-	평가완료 스코어: <%= prs.evaluation_intby_dr %>
+	평가완료 스코어: <%= prs.evaluation_intby_dr %> / <%= link_to "평가내용보기", {controller: :matchcase, action: :show_eval_ofdr, id: prs.id } %>
 	<% else %>
 	<%= link_to '평가하기', {controller: :matchcase, action: :eval_bydr, id: prs.id } %>
 	<% end %>
