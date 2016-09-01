@@ -1,9 +1,9 @@
-<h1>Matchcase#drindex</h1>
+<h3><%= link_to "치료받았던 의사리스트 보기", patientregists_path, style: "color: red" %></h3>
+<br>
 ===========================
 <h3>미완료된 케이스들 전체</h3>
 <% @srs_unmatched.each do |srs| %>
 	<%= srs.treatsubject %> <%= link_to '예약리스트로 매치시키기', {controller: :matchcase, action: :selectstdoctor, id: srs.id } %><br>
-	<!-- matchcase/selectpatient/:id -->
 <% end %>
 
 <h3>내가 매치하고 아직 완료안된 케이스</h3>
@@ -14,5 +14,11 @@
 
 <h3>매치되고 완료된 케이스 </h3>
 <% @srs_done.each do |srs| %>
-	<%= srs.treatsubject %> <br>
+	<%= srs.treatsubject %>
+	<% if srs.evaluation_intby_pt %>
+	평가완료 스코어: <%= srs.evaluation_intby_pt %> / <%= link_to "평가내용보기", {controller: :matchcase, action: :show_eval_ofpt, id: srs.id } %>
+	<% else %>
+	<%= link_to '평가하기', {controller: :matchcase, action: :eval_bypt, id: srs.id } %>
+	<% end %>
+	<br>
 <% end %>

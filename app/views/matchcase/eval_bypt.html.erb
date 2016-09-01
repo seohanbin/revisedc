@@ -1,0 +1,8 @@
+<%= form_tag({controller: "matchcase", action: "eval_bypt_apply", id: @selectedsr.id}, method: "get", class: "") do %>
+
+	스코어 <br>
+	by_점수: <%= select_tag(:score, options_for_select(1..10)) %><br>
+	by_설명(의사의 친절도): <%= text_area_tag(:describe) %><br>
+	<%= submit_tag "평가완료" %>
+
+<% end %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'matchcase/prindex'
   get 'matchcase/selectpatient/:id' => 'matchcase#selectpatient'
   get 'matchcase/confirmpr'
@@ -16,12 +16,14 @@ Rails.application.routes.draw do
   get 'matchcase/drindex'
   get 'matchcase/selectstdoctor/:id' => 'matchcase#selectstdoctor'
   get 'matchcase/confirmdr'
-
+  get 'matchcase/eval_bypt/:id' => 'matchcase#eval_bypt'
+  get 'matchcase/eval_bypt_apply/:id' => 'matchcase#eval_bypt_apply'
+  get 'matchcase/show_eval_ofpt/:id' => "matchcase#show_eval_ofpt"
 
   root 'home#index'
 
   resources :stdoctorregists
-  
+
 
   resources :patientregists
   get 'matchcase/show_eval_ofdr/:id' => "matchcase#show_eval_ofdr"
@@ -29,8 +31,8 @@ Rails.application.routes.draw do
 
   devise_for :dpatients, controllers: { registrations: 'dpatients/registrations' }
   devise_for :dstdoctors, controllers: { registrations: 'dstdoctors/registrations' }
-  
-  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

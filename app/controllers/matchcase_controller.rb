@@ -31,12 +31,12 @@ class MatchcaseController < ApplicationController
   end
 
   def eval_bydr
-    
+    @selectedpr = Patientregist.find(params[:id])
   end
 
   def eval_bydr_apply
     @selectedpr = Patientregist.find(params[:id])
-    @selectedpr.evaluation_intby_dr = params[:score] 
+    @selectedpr.evaluation_intby_dr = params[:score]
     @selectedpr.evaluation_strby_dr = params[:describe]
     @selectedpr.save
 
@@ -79,9 +79,22 @@ class MatchcaseController < ApplicationController
   end
 
   def eval_bypt
-    
+    @selectedsr = Stdoctorregist.find(params[:id])
   end
-  
+
+  def eval_bypt_apply
+    @selectedsr = Stdoctorregist.find(params[:id])
+    @selectedsr.evaluation_intby_pt = params[:score]
+    @selectedsr.evaluation_strby_pt = params[:describe]
+    @selectedsr.save
+
+    redirect_to matchcase_drindex_path
+  end
+
+  def show_eval_ofpt
+    @selectedsr = Stdoctorregist.find(params[:id])
+  end
+
   private
 
     def stdoctor_only
@@ -95,7 +108,7 @@ class MatchcaseController < ApplicationController
       else
         redirect_to :root, notice: '로그인 필요.'
       end
-      
+
     end
 
     def patient_only
@@ -109,7 +122,7 @@ class MatchcaseController < ApplicationController
       else
         redirect_to :root, notice: '로그인 필요.'
       end
-      
+
     end
 
 
