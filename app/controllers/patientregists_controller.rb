@@ -1,6 +1,7 @@
 class PatientregistsController < ApplicationController
+  before_action :check_patient
   before_action :set_patientregist, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_dpatient!
+
 
 
   # GET /patientregists
@@ -9,6 +10,9 @@ class PatientregistsController < ApplicationController
 
     #자기것만 보이도록..
     @patientregists = current_dpatient.patientregists.all
+
+    @stdoctorregists = current_dpatient.stdoctorregists.all
+
 
   end
 
@@ -77,4 +81,20 @@ class PatientregistsController < ApplicationController
     def patientregist_params
       params.require(:patientregist).permit(:chiefcomplaint, :pipainwhen, :pisustain, :piprogress, :completion, :evaluation, :dpatient_id, :dstdoctor_id)
     end
+
+    def check_patient
+
+      if signed_in?
+        if current_dpatient
+          return
+        elsif current_dstdoctor
+          redirect_to :root, notice: "환자로만 접근이 가능합니다.."
+        end
+
+      else
+        redirect_to :root, notice: "로그인이 필요합니다..!"
+      end
+
+    end
+
 end

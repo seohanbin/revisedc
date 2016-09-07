@@ -1,6 +1,7 @@
 class StdoctorregistsController < ApplicationController
+  before_action :check_stdoctor
   before_action :set_stdoctorregist, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_dstdoctor!
+
 
   # GET /stdoctorregists
   # GET /stdoctorregists.json
@@ -74,5 +75,20 @@ class StdoctorregistsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def stdoctorregist_params
       params.require(:stdoctorregist).permit(:treatsubject, :treatdescript, :treatcondition, :completion, :evaluation, :dpatient_id, :dstdoctor_id)
+    end
+
+    def check_stdoctor
+
+      if signed_in?
+  	    if current_dstdoctor
+  	      return
+  	    elsif current_dpatient
+  	      redirect_to :root, notice: "의사로만 접근이 가능합니다.."
+  	    end
+
+      else
+        redirect_to :root, notice: "로그인이 필요합니다..!"
+  	  end
+
     end
 end

@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>자신이 등록한 c/c 병변 리스트</h1>
+<h2><%= link_to "이미 등록된 의사(진료명)리스트 보기", matchcase_drindex_path, style: "color: red" %></h2>
+
+---------------------------------------------------------
+
+<h1><%= current_dpatient.email %>이 등록한 c/c 병변 리스트</h1>
 
 <table>
   <thead>
@@ -41,3 +45,7 @@
 <br>
 
 <h3><%= link_to 'c/c 등록하기', new_patientregist_path, style: "color: red" %></h3>
+
+<h1>-----------------------------------------------------------</h1>
+
+<h1><%= current_dpatient.email %>이 치료받았던 병변 리스트</h1>

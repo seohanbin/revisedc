@@ -1,8 +1,91 @@
+<%# stdoctor regists %>
+
 <p id="notice"><%= notice %></p>
 
 <h2><%= link_to "이미 등록된 환자리스트 보기", matchcase_prindex_path, style: "color: red" %></h2>
 
-<h1><%= current_dstdoctor.email %> 이 처리한 환자 리스트</h1>
+---------------------------------------------------------
+
+
+<h1><%= current_dstdoctor.email %> 이 등록한 Stdoctor regists(미연결)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Treatsubject</th>
+      <th>Treatdescript</th>
+      <th>Treatcondition</th>
+      <th>Completion</th>
+      <th>평가_by_pathent</th>
+      <th>Dpatient</th>
+      <!-- <th>Dstdoctor</th> -->
+      <th colspan="3">Change status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stdoctorregists.where( dpatient_id: nil ).each do |stdoctorregist| %>
+      <tr>
+        <td><%= stdoctorregist.treatsubject %></td>
+        <td><%= stdoctorregist.treatdescript %></td>
+        <td><%= stdoctorregist.treatcondition %></td>
+        <td><%= stdoctorregist.completion %></td>
+        <td><%= stdoctorregist.evaluation_intby_pt %></td>
+        <td><%= stdoctorregist.dpatient ? stdoctorregist.dpatient.email : "매치한 환자없음." %></td>
+        <!-- <td><%#= stdoctorregist.dstdoctor.email %></td> -->
+        <td><%= link_to 'Show', stdoctorregist %></td>
+        <td><%= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
+        <td><%= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stdoctorregist', new_stdoctorregist_path %>
+
+<h1>-----------------------------------------------------------</h1>
+
+<h1><%= current_dstdoctor.email %> 이 등록한 Stdoctor regists(연결됨)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Treatsubject</th>
+      <th>Treatdescript</th>
+      <th>Treatcondition</th>
+      <th>Completion</th>
+      <th>평가_by_pathent</th>
+      <th>Dpatient</th>
+      <!-- <th>Dstdoctor</th> -->
+      <th colspan="3">Change status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stdoctorregists.where.not( dpatient_id: nil ).each do |stdoctorregist| %>
+      <tr>
+        <td><%= stdoctorregist.treatsubject %></td>
+        <td><%= stdoctorregist.treatdescript %></td>
+        <td><%= stdoctorregist.treatcondition %></td>
+        <td><%= stdoctorregist.completion %></td>
+        <td><%= stdoctorregist.evaluation_intby_pt %></td>
+        <td><%= stdoctorregist.dpatient ? stdoctorregist.dpatient.email : "매치한 환자없음." %></td>
+        <!-- <td><%#= stdoctorregist.dstdoctor.email %></td> -->
+        <td><%= link_to 'Show', stdoctorregist %></td>
+        <td><%= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
+        <td><%= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>-----------------------------------------------------------</h1>
+
+<h1><%= current_dstdoctor.email %> 이 처리한 환자리스트(patient regists)</h1>
 
 <table>
   <thead>
@@ -30,7 +113,7 @@
         <td><%= patientregist.evaluation_intby_dr %></td>
         <td><%= patientregist.dpatient.email %></td>
 
-        <!-- <td><%#= patientregist.dstdoctor ? patientregist.dstdoctor.email : "매치없음." %></td> -->
+        <!-- ju suck !<td><%#= patientregist.dstdoctor ? patientregist.dstdoctor.email : "매치없음." %></td> -->
         <!-- <td><%#= link_to 'Show', patientregist %></td>
         <td><%#= link_to 'Edit', edit_patientregist_path(patientregist) %></td>
         <td><%#= link_to 'Destroy', patientregist, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -45,42 +128,3 @@
 
 
 <h1>-------------------------------------------------</h1>
-
-
-<h1><%= current_dstdoctor.email %> 이 등록한 Stdoctor regists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Treatsubject</th>
-      <th>Treatdescript</th>
-      <th>Treatcondition</th>
-      <th>Completion</th>
-      <th>평가_by_pathent</th>
-      <th>Dpatient</th>
-      <!-- <th>Dstdoctor</th> -->
-      <th colspan="3">Change status</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stdoctorregists.each do |stdoctorregist| %>
-      <tr>
-        <td><%= stdoctorregist.treatsubject %></td>
-        <td><%= stdoctorregist.treatdescript %></td>
-        <td><%= stdoctorregist.treatcondition %></td>
-        <td><%= stdoctorregist.completion %></td>
-        <td><%= stdoctorregist.evaluation_intby_pt %></td>
-        <td><%= stdoctorregist.dpatient ? stdoctorregist.dpatient.email : "매치한 환자없음." %></td>
-        <!-- <td><%#= stdoctorregist.dstdoctor.email %></td> -->
-        <td><%= link_to 'Show', stdoctorregist %></td>
-        <td><%= link_to 'Edit', edit_stdoctorregist_path(stdoctorregist) %></td>
-        <td><%= link_to 'Destroy', stdoctorregist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Stdoctorregist', new_stdoctorregist_path %>

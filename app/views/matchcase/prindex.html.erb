@@ -1,13 +1,13 @@
 <h3><%= link_to "처리했던 환자리스트 보기", stdoctorregists_path, style: "color: red" %></h3>
 <br>
 ===========================
-<h3>미완료된 케이스들 전체</h3>
+<h3>환자들이 등록한 미매치된 케이스들 전체</h3>
 <% @prs_unmatched.each do |prs| %>
 	이메일:<%= prs.dpatient.email %> c/c: <%= prs.chiefcomplaint %> / <%= link_to '예약리스트로 매치시키기', {controller: :matchcase, action: :selectpatient, id: prs.id } %><br>
 	<!-- matchcase/selectpatient/:id -->
 <% end %>
 
-<h3>내가 매치하고 아직 치료안해서 아직 완료안한 케이스</h3>
+<h3>내가 매치하고 아직 치료안해서 아직 완료안한 케이스(나만보임)</h3>
 <% @prs_matched.each do |prs| %>
 	환자 C/C : <%= prs.chiefcomplaint %> (<%= prs.dpatient.email %>) <%= link_to '완료 처리하기', {controller: :matchcase, action: :confirmpr, id: prs.id } %> <br>
 <% end %>
