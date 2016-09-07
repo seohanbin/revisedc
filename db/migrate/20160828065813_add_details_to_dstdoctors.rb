@@ -8,6 +8,7 @@ class AddDetailsToDstdoctors < ActiveRecord::Migration
     add_column :dstdoctors, :gender, :integer
     add_column :dstdoctors, :birth, :date
     add_column :dstdoctors, :agreement, :boolean
+    
     add_column :dstdoctors, :university, :string
     add_column :dstdoctors, :studentid, :string
   end
